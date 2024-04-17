@@ -22,6 +22,9 @@ db.connect((err) => {
 
 app.use(bodyParser.json());
 
+// Configuração para servir arquivos estáticos
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 app.get('/usuarios', (req, res) => {
   const sql = 'SELECT * FROM usuarios';
   db.query(sql, (err, result) => {
@@ -80,9 +83,13 @@ app.delete('/usuarios/:id', (req, res) => {
     }
   });
 });
-app.get("/", (req, res) => {
+app.get("/login", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin","*")
   res.sendFile(path.resolve('../frontend/login.html'));
+});
+app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.sendFile(path.resolve('../frontend/home.html'));
 });
 
 app.listen(port, () => {

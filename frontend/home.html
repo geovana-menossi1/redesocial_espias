@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Home</title>
+</head>
+<style>
+    *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 100vw;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+}
+main{
+    width: 80%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.bola{
+    background-color: blueviolet;
+    width: 50%;
+    height: 200vh;
+    border-top-right-radius: 100% 50%;
+    border-bottom-right-radius: 100% 50%;
+    
+}
+@keyframes drawLine {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60%;
+    }
+}
+.line {
+    height: 3px;
+    width: 0;
+    background-color: blueviolet;
+    margin-bottom: 10px;
+    animation: drawLine 2s ease-in-out forwards;
+}
+h1 {
+    color: blueviolet;
+    font-size: 45px;
+    margin-bottom: 10px; 
+}
+h2{
+    color: blueviolet;
+}
+button{
+    width: 50%;
+    height: 50px;
+    color: blueviolet;
+    background-color: #F0F0F0;
+    border: 1px solid #F0F0F0;
+    border-radius: 20px;
+    position: relative;
+    font-weight: bold;
+    position: relative;
+    top: 30px;
+    margin: 10px auto;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+button:hover{
+    background-color: blueviolet;
+    color: #F0F0F0;
+    font-weight: bold;
+}
+.botoes{
+    height: 500px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    color: rgb(197, 135, 255);
+    position: relative;
+}
+</style>
+<body>
+    <div class="bola">
+        <img src="../images/1.png" alt="">
+    </div>
+    <main>
+        <div class="botoes">
+            
+        <h1>Bem Vindo</h1>
+        <div class="line"></div>
+        <h3>Compartilhe aquilo que está em você</h3>
+                <button type="submit" id="button" onclick="cadastrar()">Cadastrar</button>
+                <button type="submit" id="button" onclick="entrar()">Login</button>
+        </div>
+    </main>
+</body>
+</html>
+<script>
+    function cadastrar() {
+        window.location.href = "cadastro.html";
+    }
+    function entrar() {
+        window.location.href = "/login.html";
+    }
+</script>
