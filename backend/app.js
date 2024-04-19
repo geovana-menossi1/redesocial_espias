@@ -91,7 +91,28 @@ app.get("/", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin","*")
   res.sendFile(path.resolve('../frontend/home.html'));
 });
+app.get("/cadastro", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.sendFile(path.resolve('../frontend/cadastro.html'));
+});
+app.get("/home", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.sendFile(path.resolve('../frontend/inicio.html'));
+});
+app.get("/notificaoes", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.sendFile(path.resolve('../frontend/notificacoes.html'));
+});
+app.get("/perfil", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.sendFile(path.resolve('../frontend/perfil.html'));
+});
+app.get("/editar", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.sendFile(path.resolve('../frontend/editar.html'));
+});
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
+  console.log(path.join(__dirname, '../frontend'));
 });

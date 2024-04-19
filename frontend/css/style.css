@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Home</title>
-</head>
-<style>
-    *{
+
+*{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -98,27 +90,3 @@ img{
     height: 20px;
     position: relative;
 }
-</style>
-<body>
-    <div class="bola">
-    </div>
-    <main>
-        <div class="botoes">
-            
-        <h1>Bem Vindo</h1>
-        <div class="line"></div>
-        <h3>Compartilhe aquilo que está em você</h3>
-                <button type="submit" id="button" onclick="cadastrar()">Cadastrar</button>
-                <button type="submit" id="button" onclick="entrar()">Login</button>
-        </div>
-    </main>
-</body>
-</html>
-<script>
-    function cadastrar() {
-        window.location.href = "cadastro.html";
-    }
-    function entrar() {
-        window.location.href = "/login.html";
-    }
-</script>

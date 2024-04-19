@@ -5,130 +5,238 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Login</title>
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .conteudo {
+            width: 75%;
+            height: 100vh;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .nav {
+            width: 100%;
+            height: 70px;
+            border: 1px solid #a29f9f;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav2 {
+            height: 72px;
+            border-bottom: 1px solid #a29f9f;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cont {
+            width: 100%;
+            min-height: 630px;
+            border: 1px solid #a29f9f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .aside {
+            width: 25%;
+            min-height: 705px;
+            border-right: 1px solid #a29f9f;
+            border-bottom: 1px solid #a29f9f;
+            display: none;
+        }
+
+        .post {
+            width: 75%;
+            min-height: 650px;
+            margin: 10px;
+            border: 1px solid #a29f9f;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .perfis {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .perfis2 {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            border-radius: 100%;
+            border: 1px solid #a29f9f;
+        }
+
+        .perfis3 {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            border-radius: 100%;
+            border: 1px solid #a29f9f;
+        }
+
+        .post2 {
+            width: 90%;
+            height: 420px;
+            display: flex;
+            border-radius: 20px;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #a29f9f;
+            text-align: start;
+        }
+
+        h4 {
+            margin: 10px;
+        }
+
+        .posts {
+            width: 80%;
+            height: 300px;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        .interact {
+            width: 100%;
+            height: 150px;
+        }
+
+        input {
+            width: 80%;
+            height: 40px;
+            background-color: #f0f0f0;
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            color: blueviolet;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+        }
+
+        i {
+            color: blueviolet;
+            margin: 5px;
+        }
+
+        .bell {
+            font-size: 20px;
+            color: blueviolet;
+        }
+
+        .search {
+            width: 85%;
+            height: 40px;
+            border: 1px solid blueviolet;
+            background-color: #f3eef9;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            color: blueviolet;
+            font-weight: bold;
+        }
+
+        .search2 {
+            font-size: 20px;
+            color: blueviolet;
+        }
+        .botoes{
+            height: 70px;
+            width: 7%;
+            display: flex;
+            flex-direction: row;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
 </head>
-<style>
-    *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-y: hidden;
-}
-main{
-    width: 80%;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.bola{
-    background-color: blueviolet;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    z-index: 1;
-    width: 52.7%;
-    height: 200vh;
-    border-top-right-radius: 100% 50%;
-    border-bottom-right-radius: 100% 50%;
-}
-form{
-    width: 50%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-}
-input{
-    width: 100%;
-    height: 40px;
-    background-color: #F0F0F0;
-    border: 1px solid #F0F0F0;
-    border-radius: 5px;
-    padding: 5px;
-    color: blueviolet;
-    font-weight: bold;
-}input:hover{
-    border: 1px solid #F0F0F0;
-}
-label{
-    font-weight: bold;
-    font-size: 20px;
-    color: blueviolet;
-}
-.input{
-    width: 100%;
-    height: 60px;
-    margin: 15px;
-}
-input:hover{
-    border-color: #F0F0F0;
-}
-input:focus {
-    outline: none;
-    border-color: #fff;
-}
-h1, h2{
-    color: blueviolet;
-}
-button{
-    width: 50%;
-    height: 50px;
-    color: blueviolet;
-    background-color: #F0F0F0;
-    border: 1px solid #F0F0F0;
-    border-radius: 20px;
-    position: relative;
-    font-weight: bold;
-    position: relative;
-    top: 30px;
-    margin: 10px auto;
-    font-size: 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
-button:hover{
-    background-color: blueviolet;
-    color: #F0F0F0;
-    font-weight: bold;
-}
-i{
-    position: relative;
-    color: #F0F0F0;
-    font-size: 50px;
-    right: 1170%;
-    bottom: 324px;
-    z-index: 3;
-}
-</style>
 <body>
-    <div class="bola">
+    <div class="conteudo">
+        <div class="nav">
+            <a href="perfil.html"><img class="perfis3" src="" alt=""></a>
+            <a href="inicio.html"><h1>N</h1></a>
+            <div class="botoes">
+                <a href="notificacoes.html"><i class="bi bi-bell bell"></i></a>
+                <a href="#" id="icone-lupa"><i class="bi bi-search bell"></i></a>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="post">
+                <div class="perfis">
+                    <img class="perfis2" src="" alt="">
+                    <h2>Jorge_ot</h2>
+                </div>
+                <div class="post2">
+                    <h4>Eu sendo literalmente assim:</h4>
+                    <img class="posts" src="../images/coringa.jpg" alt="">
+                </div>
+                <div class="interact">
+                    <form action="" method="get">
+                        <input type="text">
+                        <i class="bi bi-send"></i>
+                        <i class="bi bi-chat-dots"></i>
+                        <i class="bi bi-heart"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <a href="home.html"><i class="bi bi-arrow-left-short"></i></a>
-    <main>
-        <h1>Login</h1>
-        <form action="/login" method="get">
-            
-            <div class="input">
-            <label for="txtemail">Email</label>
-            <input type="email" id="txtemail" name="txtemail">
-            </div>
-            <div class="input">
-                <label for="txtsenha">Senha</label>
-                <input type="password" id="txtsenha" name="txtsenha">
-            </div>
-            <button type="submit" id="button">Entrar</button>
-        </form>
-    </main>
+    <div class="aside" id="aside">
+        <div class="nav2"><input class="search" type="text"><i class="bi bi-search search2"></i></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const iconeLupa = document.getElementById("icone-lupa");
+            const aside = document.getElementById("aside");
+            iconeLupa.addEventListener("click", function() {
+                const estilo = window.getComputedStyle(aside);
+                if (estilo.display === "none") {
+                    aside.style.display = "block";
+                } else {
+                    aside.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
