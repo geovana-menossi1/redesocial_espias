@@ -170,21 +170,25 @@
             <div class="part1">
                 <img class="user" src="" alt="">
                 <div class="bio">
-                    <form action="/" method="get">
+                    <form action="/excluir-conta" method="POST">
                         <label for="txtnome">Nome</label>
-                        <input type="text" id="txtnome" name="txtnome">
+                        <input type="text" value="<%= perfil.nome_usuario %>" id="txtnome" name="txtnome">
                         <label for="txtbio">Bio</label>
-                        <input type="text" id="txtbio" name="txtbio">
+                        <input type="text" value="<%= perfil.biografia %>" id="txtbio" name="txtbio">
                     </form>
                 </div>
             </div>
             <div class="editar">
-                <button>Salvar</button>
+                <button onclick="window.location.href = '/editar'" class="button_inicio">Editar</button>
             </div>
         </div>
         <div class="public">
-            <button class="button2">Excluir conta</button>
-            <button class="button2">Sair</button>
+            <form action="/excluir-usuario" method="post">
+                <button type="submit" class="button2">Excluir conta</button>
+            </form>
+            <form action="/logout" method="get">
+                <button type="submit" class="button2">Excluir conta</button>
+            </form>
         </div>
     </main>
 </body>
