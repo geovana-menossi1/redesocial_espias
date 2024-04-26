@@ -39,6 +39,8 @@ const authenticateUser = (req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../frontend'));
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
@@ -73,23 +75,33 @@ app.post('/cadastro', (req, res) => {
       res.status(500).send('Erro ao criar usuário');
     } else {
       console.log('Usuário criado com sucesso');
-      res.redirect('/login?success=cadastroConcluido');
+      res.redirect('/login');
     }
   });
 });
 
-app.post('/login', (req, res) => {
+app.post('/entrar', async (req, res) => {
   const { txtemail, txtsenha } = req.body;
   const sql = 'SELECT * FROM usuarios WHERE email_usuario = ? AND senha_usuario = ?';
-  db.query(sql, [txtemail, txtsenha], (err, result) => {
-    if (err || result.length === 0) {
-      res.redirect('/login?error=credenciaisIncorretas');
-    } else {
-      req.session.user = result[0];
-      res.redirect('/');
-    }
-  });
+
+  try {
+    db.query(sql, [txtemail, txtsenha], (err, result) => {
+      if (err) {
+        console.error('Erro ao verificar o login:', err);
+        res.redirect('/error');
+      } else if (result.length === 0) {
+        res.redirect('/error');
+      } else {
+        req.session.user = result[0];
+        res.redirect('/home');
+      }
+    });
+  } catch (error) {
+    console.error('Erro ao verificar o login:', error);
+    res.redirect('/error');
+  }
 });
+
 
 app.get('/logout', (req, res) => {
   req.session.destroy();
@@ -101,7 +113,14 @@ app.get("/", authenticateUser, (req, res) => {
 });
 
 app.get("/home", authenticateUser, (req, res) => {
-  res.sendFile(path.resolve('../frontend/inicio.html'));
+  const sql = 'SELECT * FROM postagens';
+  db.query(sql, (err, result) => {
+    if (err) {
+      res.status(500).send('Erro ao buscar postagens');
+    } else {
+      res.render('inicio', { postagens: result });
+    }
+  });
 });
 
 app.get("/notificacoes", authenticateUser, (req, res) => {
